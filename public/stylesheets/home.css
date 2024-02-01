@@ -1,0 +1,347 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    /* border: 1px solid rgb(255, 0, 21); */
+    width: 100%;
+    height: 100vh;
+}
+
+.container>img {
+    display: none;
+}
+
+/* LEFT-MENU */
+
+
+.container .left-menu {
+    /* border: 1px solid blue; */
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 0 0 40px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    border-right: 1px solid #484848;
+}
+
+.container .left-menu .icons {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.container .left-menu .icons a {
+    padding: 10px 12px;
+    text-decoration: none;
+    width: 70%;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+.container .left-menu .icons a:hover {
+    background: #1c1c1c;
+}
+
+.container .left-menu .icons a i {
+    margin-right: 20px;
+    font-size: 20px;
+}
+
+.container .left-menu .image {
+    width: 130px;
+}
+
+.container .left-menu .image img {
+    width: 100%;
+    background: none;
+}
+
+
+/* STORIES */
+
+
+.container .stories-post-section {
+    /* border: 1px solid rgb(4, 255, 0); */
+    height: 100%;
+    width: 60%;
+}
+
+.container .stories-post-section .story .storyArea {
+    top: 0;
+    height: 5rem;
+    width: 52%;
+    height: 93px;
+    position: absolute;
+    left: 23%;
+    margin-top: 3rem;
+    text-align: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    padding-top: 2px;
+}
+
+
+
+.container .stories-post-section .story .storyArea p {
+    padding-top: 4rem;
+    font-size: 0.8rem;
+    color: white;
+}
+
+.container .stories-post-section .story .storyArea .stories {
+    position: relative;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.container .stories-post-section .story .storyArea .stories:not(:nth-child(2)):before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid transparent;
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    z-index: -1;
+}
+
+
+.container .stories-post-section .story .storyArea i {
+    position: relative;
+    left: 70px;
+    top: -22px;
+    font-size: 22px;
+    color: #0079ff;
+    background: black;
+    border-radius: 50%;
+    z-index: 20;
+    padding: 2px;
+    cursor: pointer;
+}
+
+
+/* RIGHT-MENU */
+
+
+
+.container .right-menu {
+    height: 100%;
+    width: 20%;
+    /* border: 1px solid rgb(157, 0, 255); */
+    position: absolute;
+    top: 0;
+    right: 1%;
+}
+
+
+/* POSTS */
+
+.post-container {
+    width: 100%;
+    /* border: 2px solid rgb(81, 255, 0); */
+    margin-top: 165px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 100px;
+}
+
+.post {
+    width: 80%;
+}
+
+.post a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.postPP {
+    width: 1.9rem;
+    height: 1.9rem;
+    border-radius: 100%;
+    margin: 0.6rem 0.6rem;
+    border: 1px solid #595959;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.postPP img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 7px;
+}
+
+.postID {
+    position: absolute;
+    top: 0.8rem;
+    left: 3.5rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.firstPost {
+    width: 100%;
+    border-radius: 4px;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+.reactions li {
+    font-size: 1.3rem;
+    display: inline-block;
+    padding: 0.2rem 0.4rem;
+    cursor: pointer;
+}
+
+.stick {
+    width: 30.8%;
+    height: 1px;
+    position: absolute;
+    background-color: #cccccc;
+    left: 30%;
+    top: 67rem;
+    margin: 1rem 0 1.2rem 0;
+}
+
+.post2 {
+    width: 30.8%;
+    position: absolute;
+    left: 30%;
+    top: 42rem;
+}
+
+.postPP2 {
+    width: 1.9rem;
+    height: 1.9rem;
+    border-radius: 100%;
+    margin: 0.6rem 0.6rem;
+    cursor: pointer;
+}
+
+.postID2 {
+    position: absolute;
+    top: 0.8rem;
+    left: 3.5rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.firstPost2 {
+    width: 100%;
+    border-radius: 4px;
+}
+
+.reactions2 li {
+    font-size: 1.3rem;
+    display: inline-block;
+    padding: 0.2rem 0.4rem;
+    cursor: pointer;
+}
+
+.dots i {
+    position: absolute;
+    right: 1rem;
+    margin-top: -1.9rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+
+/*  */
+
+.stories-post-section .footer {
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stories-post-section .footer p {
+    font-weight: bold;
+}
+
+.stories-post-section .footer .icon {
+    display: none;
+}
+
+.stories-post-section .footer p a {
+    text-decoration: none;
+    color: blue;
+}
+
+
+
+/* SUGGESTIONS */
+
+
+.suggestions {
+    position: absolute;
+    right: 0;
+    top: 8%;
+    /* border: 1px solid rgb(0, 215, 190); */
+}
+
+.sugProfile {
+    width: 2.7rem;
+    height: 2.7rem;
+    border-radius: 100%;
+    margin: 1rem 0 0rem 0.5rem;
+    list-style: none;
+    display: flow-root list-item;
+}
+
+.sugUser {
+    margin: 0.7rem 0 0 3.5rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.sugFollow {
+    position: absolute;
+    font-size: 0.7rem;
+    color: rgb(102, 184, 255);
+    font-weight: bold;
+    cursor: pointer;
+    right: 1rem;
+    margin: -0.9rem 0 0 0;
+}
+
+.sugLinks {
+    font-size: 0.8rem;
+    color: #d8d8d8;
+    cursor: pointer;
+    margin: 3rem 0 0 0.5rem;
+    line-height: 1.2rem;
+}

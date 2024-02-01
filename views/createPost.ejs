@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/createPost.css" />
+    <link rel="stylesheet" href="/stylesheets/responsive/createPost.css" />
+    <title>Create Post</title>
+  </head>
+  <body>
+    <div class="container">
+      <form
+        action="/createPost"
+        method="post"
+        enctype="multipart/form-data"
+        id="createPost"
+      >
+        <input type="file" id="imageInput" hidden name="image" />
+        <div class="imageBox">
+          <div class="image">
+            <img
+              src="https://imgs.search.brave.com/Q4bL_yMEAbXiFCo2MCwZ4wHEa5PwxrArKnfgEBhrCTU/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuc3RpY2twbmcu/Y29tL2ltYWdlcy81/ODVlNGJmM2NiMTFi/MjI3NDkxYzMzOWEu/cG5n"
+              alt="image"
+              draggable="false"
+            />
+          </div>
+          <input type="button" class="btn" id="editBtn" value="Select Image" />
+        </div>
+        <textarea
+          name="caption"
+          spellcheck="false"
+          placeholder="Write Caption..."
+        ></textarea>
+        <button type="submit" class="btn">Create Post</button>
+      </form>
+    </div>
+    <div class="footer">
+      <div class="icon">
+        <a href="/home"><i class="fa-solid fa-house"></i></a>
+        <a href="/search"><i class="fa-solid fa-magnifying-glass"></i> </a>
+        <a href="/createPost"><i class="fa-regular fa-square-plus"></i> </a>
+        <a href="/profile"><i class="fa-regular fa-user"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <script
+      src="https://kit.fontawesome.com/aafd52c1fb.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      document.querySelector("#editBtn").addEventListener("click", function () {
+        document.querySelector("#imageInput").click();
+      });
+    </script>
+  </body>
+</html>

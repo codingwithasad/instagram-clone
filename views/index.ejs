@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/responsive/signup.css" />
+    <title>Sign up</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <div class="heading">
+        </div>
+        <span class="error"><%= error %></span>
+        <form class="login-form" method="post" action="/register">
+          <div class="field">
+            <input
+              id="username"
+              name="username"
+              type="text"
+              placeholder="Username"
+            />
+          </div>
+          <div class="field">
+            <input id="name" type="text" placeholder="Name" name="name" />
+          </div>
+          <div class="field">
+            <input id="email" type="email" placeholder="Email" name="email" />
+          </div>
+          <div class="field">
+            <input
+              id="password"
+              type="password"
+              placeholder="Password"
+              name="password"
+            />
+          </div>
+          <button class="login-button" title="login">Sign up</button>
+          <div class="separator">
+            <div class="line"></div>
+            <p>OR</p>
+            <div class="line"></div>
+          </div>
+          <div class="other">
+            <button class="fb-login-btn" type="button">
+              <i class="fa fa-facebook-official fb-icon"></i>
+              <span class="">Sign up with Facebook</span>
+            </button>
+            <a class="forgot-password" href="#">Forgotten your password?</a>
+          </div>
+        </form>
+      </div>
+      <div class="box last-box">
+        <p>
+          Already have an account? <a class="signup" href="/login">Log in</a>
+        </p>
+      </div>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/aafd52c1fb.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

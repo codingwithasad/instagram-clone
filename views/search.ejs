@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/search.css" />
+    <link rel="stylesheet" href="/stylesheets/responsive/search.css" />
+    <title>Search</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="search">
+        <input type="text" id="inputUsername" placeholder="Search username"> 
+        <span><i class="fa-solid fa-magnifying-glass"></i></span>
+      </div>
+      <div class="search-results">  
+      </div>
+      <div class="footer">
+        <div class="icon">
+          <a href="/home"><i class="fa-solid fa-house"></i></a>
+          <a href="/search"><i class="fa-solid fa-magnifying-glass"></i> </a>
+          <a href="/createPost"><i class="fa-regular fa-square-plus"></i> </a>
+          <a href="/profile"><i class="fa-regular fa-user"></i></a>
+        </div>
+      </div>
+    </div>
+
+
+
+    <script
+      src="https://kit.fontawesome.com/aafd52c1fb.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.5/axios.min.js" integrity="sha512-TjBzDQIDnc6pWyeM1bhMnDxtWH0QpOXMcVooglXrali/Tj7W569/wd4E8EDjk1CwOAOPSJon1VfcEt1BI4xIrA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+            const inp = document.querySelector('#inputUsername');
+            let clutter = "";
+            inp.addEventListener("input", function () {
+              axios.get(`/username/${inp.value}`)
+                .then(function (data) {
+                  clutter = '';
+                  data.data.forEach(element => {
+                    clutter += `
+                    <a href="/userProfile/${element._id}">
+                      <div class="results">
+                          <div class="image">
+                          <img src="${element.profileImage}" alt="image">
+                        </div>
+                        <p>${element.username}</p>
+                        <!-- Use a class for better selection -->
+                        <a href="/user/follow/${element._id}" class="follow-btn" data-following="${element.isFollowing ? 'true' : 'false'}">${element.isFollowing ? 'Following' : 'Follow'}</a>
+                        </div>
+                        </a>`;
+                  });
+                  document.querySelector('.search-results').innerHTML = clutter;
+
+                  // Add event listener for follow/unfollow action
+                  document.querySelectorAll('.follow-btn').forEach(btn => {
+                    btn.addEventListener('click', function (event) {
+                      event.preventDefault();
+                      const userId = btn.getAttribute('href').split('/').pop();
+                      followUser(userId, btn);
+                    });
+                  });
+                });
+            });
+
+            function followUser(userId, btn) {
+              axios.get(`/user/follow/${userId}`)
+                .then(function (response) {
+                  if (response.status === 200) {
+                    // Update the button text and data-following attribute
+                    const isFollowing = btn.getAttribute('data-following') === 'true';
+                    btn.textContent = isFollowing ? 'Follow' : 'Following';
+                    btn.setAttribute('data-following', isFollowing ? 'false' : 'true');
+                  }
+                })
+                .catch(function (error) {
+                  console.error(error);
+                });
+}
+
+    </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function (event) {
+    var scrollpos = localStorage.getItem("scrollpos");
+    if (scrollpos) window.scrollTo(0, scrollpos);
+  });
+
+  window.onbeforeunload = function (e) {
+    localStorage.setItem("scrollpos", window.scrollY);
+  };
+</script>
+  </body>
+</html>

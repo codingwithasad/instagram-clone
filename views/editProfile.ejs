@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/editProfile.css" />
+    <link rel="stylesheet" href="/stylesheets/responsive/editProfile.css" />
+    <title>Edit Profile</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="h2">Edit Profile</h2>
+      <div class="profile">
+        <div class="image">
+          <% if(user.profileImage ===
+          "https://imgs.search.brave.com/Q4bL_yMEAbXiFCo2MCwZ4wHEa5PwxrArKnfgEBhrCTU/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuc3RpY2twbmcu/Y29tL2ltYWdlcy81/ODVlNGJmM2NiMTFi/MjI3NDkxYzMzOWEu/cG5n"){
+          %>
+          <img
+            src="https://imgs.search.brave.com/Q4bL_yMEAbXiFCo2MCwZ4wHEa5PwxrArKnfgEBhrCTU/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuc3RpY2twbmcu/Y29tL2ltYWdlcy81/ODVlNGJmM2NiMTFi/MjI3NDkxYzMzOWEu/cG5n"
+            alt=""
+          />
+          <%}else{%>
+          <img src="<%= user.profileImage %>" alt="" />
+          <% } %>
+        </div>
+        <div class="text">
+          <span><b><%= user.username %></b></span>
+          <br />
+          <span><%= user.name %></span>
+        </div>
+        <button id="editBtn">Change Photo</button>
+      </div>
+      <form
+        action="/update"
+        id="form"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <h2>Username</h2>
+        <input type="file" hidden name="image" id="imageInput" />
+        <div class="details">
+          <input
+            type="text"
+            name="username"
+            class="box"
+            placeholder="@username"
+            value="<%= user.username %>"
+            spellcheck="false"
+          />
+        </div>
+        <h2>Name</h2>
+        <div class="details">
+          <input
+            type="text"
+            name="name"
+            id=""
+            class="box"
+            placeholder="Name"
+            value="<%= user.name %>"
+            spellcheck="false"
+          />
+        </div>
+        <h2>Bio</h2>
+        <div class="details">
+          <input
+            type="text"
+            name="bio"
+            id=""
+            class="box"
+            placeholder="Bio"
+            value="<%= user.bio %>"
+            spellcheck="false"
+          />
+        </div>
+        <input type="submit" value="Update Details" />
+      </form>
+    </div>
+
+    <script>
+      document.querySelector("#editBtn").addEventListener("click", function () {
+        document.querySelector("#imageInput").click();
+      });
+    </script>
+  </body>
+</html>

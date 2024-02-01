@@ -1,0 +1,526 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* Profile */
+header {
+    margin-bottom: 44px;
+}
+
+.header-wrap {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 30px;
+}
+
+
+.header-wrap .profile-pic {
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-wrap .profile-pic img {
+    width: 150px;
+    height: 150px;
+    border-radius: 1000px;
+    object-fit: cover;
+}
+
+.postSuccessMsg {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.postSuccessMsg h4 {
+    width: 40%;
+    background-color: #0079ff;
+    padding: 12px;
+    border-radius: 12px;
+}
+
+.profile-info .title h2 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.profile-info .title span {
+    margin-left: 8px;
+}
+
+.profile-info .title a {
+    text-decoration: none;
+}
+
+.profile-info .title button {
+    margin-left: 20px;
+    border-radius: 20px;
+    padding: 8px 10px;
+    transition: all .5s;
+}
+
+.profile-info .title button:hover {
+    background-color: #0087e2;
+}
+
+
+.profile-info .title {
+    display: flex;
+    align-items: center;
+}
+
+
+.profile-info .details li {
+    font-size: 16px;
+    font-weight: 400;
+    margin-right: 40px;
+}
+
+.profile-info .details li span {
+    font-weight: 600;
+}
+
+.profile-info .details ul {
+    display: flex;
+}
+
+.profile-info .descriptions h1 {
+    font-weight: 600;
+    line-height: 24px;
+    font-size: 18px;
+}
+
+.profile-info .descriptions span {
+    font-weight: 400;
+    line-height: 40px;
+}
+
+.profile-info .descriptions a {
+    color: hsl(209, 100%, 21%);
+}
+
+
+.profile-info .row {
+    margin-bottom: 20px;
+}
+
+.profile-info .row.last {
+    margin-bottom: 0px;
+}
+
+.profile-info .row.last p {
+    margin-top: 10px;
+}
+
+/* Story */
+.story-item .image {
+    padding: 3px;
+    border-radius: 1000px;
+    border: 1px solid hsl(0, 0%, 86%);
+}
+
+.story-item .image img {
+    border-radius: 1000px;
+    width: 77px;
+    height: 77px;
+    display: block;
+}
+
+
+.story-item .title {
+    padding-top: 15px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+    width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.story-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 15px;
+}
+
+
+.stories {
+    display: flex;
+    justify-content: start;
+    padding: 0 24px;
+    /* overflow-x: scroll; */
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 44px;
+}
+
+
+.slider-button-next {
+    position: sticky;
+    right: 0;
+    cursor: pointer;
+}
+
+/* Tabs */
+.tab-item span {
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+    margin-left: 6px;
+}
+
+.tab-item {
+    display: flex;
+    align-items: center;
+    height: 52px;
+}
+
+.tab-item.active {
+    border-top: 1px solid hsl(0, 0%, 54.9%);
+    margin-top: -1px;
+    color: hsl(0, 0%, 15%);
+}
+
+.tabs {
+    border-top: 1px solid hsl(0, 0%, 86%);
+    display: flex;
+    justify-content: center;
+}
+
+/* Mobile Tabs */
+.mobile-tabs li {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: center;
+    color: white;
+}
+
+.mobile-tabs li div {
+    color: white;
+    font-weight: 600;
+}
+
+.mobile-tabs ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 12px 0;
+    /* border-top: 1px solid rgb(219, 219, 219); */
+}
+
+.mobile-tabs .actions {
+    display: flex;
+    justify-content: space-around;
+    height: 44px;
+    align-items: center;
+    margin-bottom: 10px;
+    /* border-top: 1px solid rgb(219, 219, 219); */
+}
+
+
+
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 4px;
+    /* add some gap between the items */
+    overflow: hidden;
+}
+
+.gallery .gallery-item {
+    width: 100%;
+    overflow: hidden;
+    height: 400px;
+    position: relative;
+    cursor: pointer;
+    /* ensure the items take up the full width of the column */
+}
+.gallery .gallery-item::before {
+    content: '';
+    position: absolute;
+    bottom: 0; /* Start at the bottom */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.44);
+    display: block; /* Change this to block */
+    transform: translateY(100%); /* Move the element below the container */
+    transition: transform 0.3s, opacity 0.3s; /* Add transform property to transition */
+    opacity: 1;
+}
+
+.gallery .gallery-item:hover::before {
+    transform: translateY(0); /* Move the element to the top */
+    opacity: 1;
+}
+
+
+.gallery .gallery-item form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+}
+.gallery .gallery-item form .dltPostBtn {
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    z-index: 10;
+    position: relative;
+    display: none;
+    transform: translateY(100%); /* Move the element below the container */
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.gallery .gallery-item:hover form .dltPostBtn {
+    display: block;
+    transform: translateY(0); /* Move the element to the top */
+}
+
+.gallery .gallery-item form .dltPostBtn i {
+    /* Adjust the font-size and other styles as needed */
+    color: white;
+    font-size: 24px;
+    transform: translateY(-150px); /* Move the icon below the container initially */
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.gallery .gallery-item:hover form .dltPostBtn i {
+    transform: translateY(0); /* Move the icon to the top when hovered */
+}
+
+/* Example using Font Awesome delete icon */
+.gallery .gallery-item form .dltPostBtn .fa-trash-alt {
+    color: white;
+    z-index: 15;
+}
+
+.gallery .gallery-item form .dltPostBtn:hover {
+    background: #363434;
+    /* Change the background color on hover */
+}
+
+.gallery .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-item .media-icon {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+.footer{
+    display: none;
+}
+
+
+/* RESPONSIVENESS */
+
+
+
+@media screen and (max-width:1000px) {
+    .gallery .gallery-item {
+        height: 300px;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .gallery .gallery-item {
+        height: 280px;
+    }
+}
+
+@media screen and (max-width:890px) {
+    .postSuccessMsg h4 {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .gallery .gallery-item {
+        height: 250px;
+    }
+}
+
+@media screen and (max-width:700px) {
+
+    .footer {
+        height: 7%;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-top: 1px solid #8080804a;
+        padding: 0 15%;
+        background-color: black;
+    }
+
+    .footer .icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30%;
+        width: 100%;
+    }
+
+    .footer .icon a {
+        color: white;
+    }
+}
+
+@media only screen and (max-width: 735px) {
+    header {
+        display: block;
+        margin-bottom: 0px;
+    }
+
+    .header-wrap {
+        display: flex;
+        padding: 14px;
+        column-gap: 0px;
+    }
+
+    .header-wrap .profile-pic {
+        width: 77px;
+        height: 77px;
+        margin-right: 28px;
+    }
+
+    .header-wrap .profile-pic img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .profile-info .title h2 {
+        display: inline-block;
+        margin-bottom: 12px;
+        font-size: 17px;
+    }
+
+    main {
+        padding: 2% 5%;
+    }
+
+    .profile-info .title span {
+        display: inline-block;
+    }
+
+    .profile-info .title button {
+        display: block;
+        margin-left: 0px;
+        padding: 6px 6px;
+        font-size: 12px;
+    }
+
+    .profile-info .title {
+        display: block;
+    }
+
+    .story-item .title {
+        font-size: 12px;
+        padding-top: 8px;
+        font-weight: 400;
+        width: 65px;
+    }
+
+    .stories {
+        padding: 0;
+        margin-bottom: 21px;
+    }
+
+    .gallery {
+        gap: 3px;
+    }
+
+    .story-item {
+        padding: 0px 5px;
+    }
+
+    .story-item .image img {
+        width: 56px;
+        height: 56px;
+    }
+
+    .profile-info .descriptions {
+        padding-left: 16px;
+        padding-bottom: 21px;
+        font-size: 14px;
+        margin-bottom: 0px !important;
+    }
+
+    .profile-info .descriptions h1 {
+        line-height: 20px;
+        margin-bottom: 3px;
+        font-size: 15px;
+    }
+
+    .profile-info .descriptions span {
+        line-height: 20px;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .gallery .gallery-item {
+        height: 200px;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .gallery .gallery-item {
+        height: 100px;
+    }
+}
+
+@media screen and (max-width:590px) {
+    main {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .profile-info .title button {
+        padding: 4px 8px;
+        font-size: 9px;
+    }
+
+    .postSuccessMsg h4 {
+        width: 80%;
+        font-size: 14px;
+    }
+
+    header,
+    ul {
+        margin: 0 20px;
+    }
+}
+
+@media screen and (max-width:430px) {
+    .gallery .gallery-item form .dltPostBtn i {
+        font-size: 16px;
+    }
+}

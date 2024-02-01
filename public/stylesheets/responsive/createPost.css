@@ -1,0 +1,63 @@
+@media screen and (max-width:850px) {
+    .container {
+        width: 80%;
+    }
+}
+@media screen and (max-width:700px) {
+
+    .footer {
+        height: 7%;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-top: 1px solid #8080804a;
+        padding: 0 15%;
+        background-color: black;
+    }
+
+    .footer .icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30%;
+        width: 100%;
+    }
+
+    .footer .icon a {
+        color: white;
+    }
+}
+@media screen and (max-width:500px) {
+    body{
+        padding: 25% 0;
+    }
+    .container {
+        width: 90%;
+    }
+
+    form .imageBox .image {
+        width: 130px;
+    }
+
+    form .imageBox {
+        gap: 0;
+    }
+}
+
+@media screen and (max-width:400px) {
+    form .imageBox .image {
+        width: 70px;
+        padding:0 ;
+    }
+
+    form .imageBox{
+        padding: 10px;
+        gap: 10px;
+    }
+    textarea {
+        font-size: 15px;
+    }
+}

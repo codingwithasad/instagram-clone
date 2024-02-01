@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/home.css" />
+    <link rel="stylesheet" href="/stylesheets/responsive/home.css" />
+    <title>Home</title>
+  </head>
+  <body>
+    <div class="container">
+      <img src="/images/Logo-Instagram-1.png" alt="logo" />
+      <div class="left-menu">
+        <div class="image">
+          <img src="/images/Logo-Instagram-1.png" alt="logo" />
+        </div>
+        <div class="icons">
+          <a href="/home"><i class="fa-solid fa-house"></i><span>Home</span></a>
+          <a href="/search"
+            ><i class="fa-solid fa-magnifying-glass"></i> <span>Search</span></a
+          >
+          <a href="">
+            <i class="fa-regular fa-compass"></i> <span>Explore</span></a
+          >
+          <a href=""
+            ><i class="fa-solid fa-clapperboard"></i> <span>Reels</span></a
+          >
+          <a href=""
+            ><i class="fa-brands fa-facebook-messenger"></i>
+            <span>Messages</span></a
+          >
+          <a href=""
+            ><i class="fa-regular fa-heart"></i> <span>Notifications</span></a
+          >
+          <a href="/createPost"
+            ><i class="fa-regular fa-square-plus"></i> <span>Create</span></a
+          >
+          <a href="/profile"
+            ><i class="fa-regular fa-user"></i><span>Profile</span></a
+          >
+          <a href="/logout"
+            ><i class="fa-solid fa-arrow-right-from-bracket"></i
+            ><span>Logout</span></a
+          >
+        </div>
+      </div>
+      <div class="stories-post-section">
+        <div class="story">
+          <ul class="storyArea">
+            <i class="fa-solid fa-circle-plus"></i>
+            <li
+              style="
+                background-image: url(<%= user.profileImage %>);
+                background-size: cover;
+              "
+              class="stories"
+            >
+              <p><%= user.username %></p>
+            </li>
+            <li
+              style="
+                background-image: url(https://i.pinimg.com/236x/31/76/f3/3176f3cb386210985c8839734d072d9d.jpg);
+                background-size: cover;
+              "
+              class="stories"
+            >
+              <p>Asad</p>
+            </li>
+            <li
+              style="
+                background-image: url(https://i.pinimg.com/236x/f6/69/b7/f669b70d7cf5ca6892a4e5c985784b7d.jpg);
+                background-size: cover;
+              "
+              class="stories"
+            >
+              <p>Ahtsham</p>
+            </li>
+            <li
+              style="
+                background-image: url(https://i.pinimg.com/236x/8d/04/85/8d0485d1c73a171767d67d089f767485.jpg);
+                background-size: cover;
+              "
+              class="stories"
+            >
+              <p>Fahad</p>
+            </li>
+            <li
+              style="
+                background-image: url(https://i.pinimg.com/236x/ed/3c/ba/ed3cbabd8e3a6cce421016fd7bd21707.jpg);
+                background-size: cover;
+              "
+              class="stories"
+            >
+              <p>Haroon</p>
+            </li>
+            <li
+              style="
+                background-image: url(https://i.pinimg.com/236x/71/76/4f/71764f3054f642e00c16992bdad8b101.jpg);
+                background-size: cover;
+              "
+              class="stories"
+            >
+              <p>Hadia</p>
+            </li>
+            <li
+              style="
+                background-image: url(https://i.pinimg.com/236x/b7/5c/73/b75c73a1145d514f11953676c13de3ea.jpg);
+                background-size: cover;
+              "
+              class="stories"
+            >
+              <p>Rabia</p>
+            </li>
+            <li
+              style="
+                background-image: url(https://i.pinimg.com/236x/2a/35/18/2a3518c2d9e3fd77b1f63ff24397e1f1.jpg);
+                background-size: cover;
+              "
+              class="stories"
+            >
+              <p>Fatima</p>
+            </li>
+          </ul>
+        </div>
+        <div class="post-container">
+          <% post.reverse().forEach(function(elem){ %>
+          <div class="post">
+            <div class="postPP">
+              <a href="/userProfile/<%= elem.user._id %>">
+                <img src="<%= elem.user.profileImage %>" alt="profileImage"
+              /></a>
+            </div>
+            <img class="firstPost" src="<%= elem.picture %>" alt="post" />
+            <ul class="reactions">
+              <li>
+                <a href="/like/post/<%= elem._id %>">
+                  <% if(elem.likes.indexOf(user._id) !== -1){ %>
+                  <i class="fa-solid fa-heart" style="color: #ff0000"></i>
+                  <% }else{ %>
+                  <i class="fa-regular fa-heart"></i>
+                  <% } %>
+                </a>
+              </li>
+              <li><i class="fa-regular fa-comment" aria-hidden="true"></i></li>
+              <li>
+                <i class="fa-regular fa-paper-plane" aria-hidden="true"></i>
+              </li>
+            </ul>
+            <p class="like">
+              <b><%= elem.likes.length %> likes</b>
+            </p>
+            <p class="username">
+              <a href="/userProfile/<%= elem.user._id %>"
+                ><b style="cursor: pointer"><%= elem.user.username %></b></a
+              >
+              &nbsp; <%= elem.caption %>
+            </p>
+            <p class="addComment">Add a comment...</p>
+          </div>
+          <% }) %>
+        </div>
+        <div class="footer">
+          <p>
+            All copyrights &copy; reserved to
+            <a href="https://linktr.ee/asad.code" target="_blank"
+              >Asad Mughal</a
+            >
+          </p>
+          <div class="icon">
+            <a href="/home"><i class="fa-solid fa-house"></i></a>
+            <a href="/search"><i class="fa-solid fa-magnifying-glass"></i> </a>
+            <a href="/createPost"><i class="fa-regular fa-square-plus"></i> </a>
+            <a href="/profile"><i class="fa-regular fa-user"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="right-menu">
+        <ul class="suggestions">
+          <li
+            style="
+              background-image: url(https://source.unsplash.com/random/480x480/?men);
+              background-size: cover;
+            "
+            class="sugProfile"
+          >
+            <p class="sugUser">arslan</p>
+            <p class="sugFollow">Switch</p>
+          </li>
+          <p
+            class="sugText"
+            style="
+              color: rgb(123, 123, 123);
+              font-weight: bold;
+              position: absolute;
+              margin: 1.1rem 0 0 0.5rem;
+              font-size: 0.9rem;
+            "
+          >
+            Suggested for you
+          </p>
+          <p
+            class="sugSeeAll"
+            style="
+              color: rgb(123, 123, 123);
+              font-weight: bold;
+              position: absolute;
+              margin: 1.2rem 0 0 0.5rem;
+              right: 0.7rem;
+              font-size: 0.8rem;
+              cursor: pointer;
+            "
+          >
+            See All
+          </p>
+          <br /><br />
+          <li
+            style="
+              background-image: url(https://source.unsplash.com/random/480x480/?boy);
+              background-size: cover;
+            "
+            class="sugProfile"
+          >
+            <p class="sugUser">fadi</p>
+            <p class="sugFollow">Follow</p>
+          </li>
+          <li
+            style="
+              background-image: url(https://source.unsplash.com/random/480x480/?male);
+              background-size: cover;
+            "
+            class="sugProfile"
+          >
+            <p class="sugUser">aqib</p>
+            <p class="sugFollow">Follow</p>
+          </li>
+          <li
+            style="
+              background-image: url(https://source.unsplash.com/random/480x480/?women);
+              background-size: cover;
+            "
+            class="sugProfile"
+          >
+            <p class="sugUser">fatima</p>
+            <p class="sugFollow">Follow</p>
+          </li>
+          <li
+            style="
+              background-image: url(https://source.unsplash.com/random/480x480/?girl);
+              background-size: cover;
+            "
+            class="sugProfile"
+          >
+            <p class="sugUser">rabia</p>
+            <p class="sugFollow">Follow</p>
+          </li>
+          <li
+            style="
+              background-image: url(https://source.unsplash.com/random/480x480/?woman);
+              background-size: cover;
+            "
+            class="sugProfile"
+          >
+            <p class="sugUser">hadia</p>
+            <p class="sugFollow">Follow</p>
+          </li>
+          <p class="sugLinks">
+            About . Help . Press . API . Jobs . Privacy . Terms . <br />
+            Locations . Language . Meta Verified
+          </p>
+        </ul>
+      </div>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/aafd52c1fb.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      // Save Y Offset Position to localStorage
+      const recordVerticalOffset = () => {
+        localStorage.setItem("pageVerticalPosition", window.scrollY);
+      };
+
+      // Only save window position after scrolling stops
+      const throttleScroll = (delay) => {
+        let time = Date.now();
+
+        const checkScroll = setInterval(() => {
+          if (Date.now() > time + delay) {
+            clearInterval(checkScroll);
+            return recordVerticalOffset();
+          }
+        }, 300);
+      };
+
+      // Scroll Event Listener
+      window.addEventListener("scroll", throttleScroll(1000));
+
+      // DESTINATION PAGE
+      // ================
+
+      const repositionPage = () => {
+        let pageVerticalPosition =
+          localStorage.getItem("pageVerticalPosition") || 0;
+
+        window.scrollTo(0, pageVerticalPosition);
+      };
+
+      window.addEventListener("load", repositionPage);
+    </script>
+  </body>
+</html>

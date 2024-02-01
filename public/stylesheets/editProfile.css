@@ -1,0 +1,141 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+    color: white;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.h2 {
+    margin-bottom: 30px;
+    margin-top: 10px;
+    align-self: start;
+}
+
+.container {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid red; */
+    flex-direction: column;
+    gap: 20px;
+}
+
+.container .profile {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    /* border: 1px solid rgb(132, 0, 255); */
+    padding: 20px;
+    background: #262626;
+    border-radius: 20px;
+    position: relative;
+
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.container .profile .image {
+    width: 60px;
+    border-radius: 50%;
+    background: none;
+}
+
+.container .profile .image img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.container .profile .text {
+    /* border: 1px solid rgb(47, 255, 0); */
+    margin-left: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+button {
+    position: absolute;
+    right: 3%;
+    background-color: #0079ff;
+    padding: 5px 10px;
+    border-radius: 8px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transform: all .5s;
+}
+
+button:hover {
+    background-color: #0069e0;
+}
+
+.container .profile .text {
+    background: none;
+}
+
+.container .profile .text span {
+    background: none;
+}
+
+h2:nth-child(3) {
+    margin-top: 10px;
+    align-self: start;
+}
+
+.details {
+    width: 100%;
+    padding: 20px;
+    border-radius: 20px;
+    border: 2px solid #262626;
+}
+
+.details .box {
+    width: 100%;
+    height: 45px;
+    background: none;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h2:nth-child(4) {
+    margin-top: 10px;
+    align-self: start;
+}
+
+h2 {
+    margin-top: 10px;
+    align-self: start;
+}
+
+input[type=submit] {
+    background-color: #0079ff;
+    padding: 10px 30px;
+    border-radius: 8px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transform: all .5s;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+input[type=submit]:hover {
+    background-color: #0069e0;
+}
