@@ -4,7 +4,7 @@ var createError = require('http-errors');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const expressSession= require('express-session');
+const expressSession = require('express-session');
 const passport = require("passport");
 var express = require('express');
 const flash = require('connect-flash');
@@ -17,14 +17,15 @@ require('./routes/cloudinary');
 const cloudinary = require('cloudinary');
 var usersapp = require('./routes/users');
 const port = process.env.PORT || 3000;
-// view engine setup
+
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(expressSession({
-  resave:true,
-  saveUninitialized:true,
-  secret:"Asad Asad Asad"
+  resave: true,
+  saveUninitialized: true,
+  secret: "Asad Asad Asad"
 }));
 app.use(flash());
 app.use(passport.initialize());
@@ -40,10 +41,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/users', usersapp);
-
-
-
-
 
 
 passport.use(new localStrategy(userModel.authenticate()));
@@ -165,7 +162,7 @@ app.post('/createPost', isLoggedIn, upload.single("image"), async function (req,
     res.redirect('/home');
   } catch (err) {
     console.error(err);
-    res.status(500).send('Internal Server Error');
+    res.status(500).send('Something went wrong!');
   }
 });
 
@@ -186,7 +183,7 @@ app.post('/update', upload.single('image'), async function (req, res) {
     res.redirect('/profile');
   } catch (err) {
     console.error(err);
-    res.status(500).send('Internal Server Error');
+    res.status(500).send('Something went wrong!');
   }
 });
 
@@ -247,7 +244,6 @@ app.get('/logout', function (req, res, next) {
   });
 });
 
-
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
     return next()
@@ -255,15 +251,13 @@ function isLoggedIn(req, res, next) {
   res.redirect('/')
 }
 
-
-
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -273,7 +267,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-
-app.listen(port,()=>{
+app.listen(port, () => {
   console.log(`App is listening on PORT ${port}`);
 });

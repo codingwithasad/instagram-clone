@@ -45,6 +45,8 @@
 
     .search-results .results .image {
         width: 45px;
+        height: 45px;
+        object-fit: cover;
     }
 
     .results a {
